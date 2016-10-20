@@ -9,6 +9,10 @@ CONFIG_FILE=$(BASEDIR)/pelicanconf.py
 
 build: install
 	rm -rf $(OUTPUTDIR)/*
+	mkdir -p theme/static/build/js/lib theme/static/build/fonts theme/static/build/css theme/static/build/img
+	cp -R node_modules/font-awesome/fonts theme/static/build/
+	npm run build-js
+	npm run build-scss
 	$(PELICAN) -o $(OUTPUTDIR) -vs $(CONFIG_FILE)
 
 serve:

@@ -7,29 +7,52 @@ SITENAME = 'Hoily'
 SITEURL = ''
 
 PATH = 'content'
+THEME = "theme"
+THEME_STATIC_DIR = "static"
+THEME_STATIC_PATHS = ["static/build"]
+STATIC_PATHS = ["assets"]
+SLUGIFY_SOURCE = 'basename'
 
 TIMEZONE = 'Europe/London'
-
 DEFAULT_LANG = 'en'
 
-# Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
+# Disable some pages
+TAG_URL = False
+TAG_SAVE_AS = False
+TAGS_SAVE_AS = False
+AUTHORS_URL = False
+AUTHORS_SAVE_AS = False
+CATEGORIES_SAVE_AS = False
+ARCHIVES_URL = False
+ARCHIVES_SAVE_AS = False
+AUTHOR_URL = False
+AUTHOR_SAVE_AS = False
 
-# Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
-         ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+# Override page URLs
+PAGE_SAVE_AS = "{slug}/index.html"
+PAGE_URL = "{slug}/"
+ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
+ARTICLE_URL = "{category}/{slug}/"
+CATEGORY_SAVE_AS = "{slug}/index.html"
+CATEGORY_URL = "{slug}/"
 
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+# Add ATOM feed
+FEED_ATOM = 'feed.atom'
+FEED_DOMAIN = SITEURL
 
 DEFAULT_PAGINATION = 10
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+USE_FOLDER_AS_CATEGORY = True
+
+
+# Setup markdown extensions
+from fontawesome_markdown import FontAwesomeExtension
+from pyembed.markdown import PyEmbedMarkdown
+from mkdcomments import CommentsExtension
+MD_EXTENSIONS = [
+    FontAwesomeExtension(),
+    PyEmbedMarkdown(),
+    CommentsExtension(),
+    'codehilite(css_class=highlight)',
+    'extra'
+]

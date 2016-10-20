@@ -4,3 +4,4 @@ git+https://github.com/ryneeverett/python-markdown-comments.git
 markdown==2.6.7
 pelican==3.6.3
 pelican-minify==0.9
+pyembed-markdown==1.1.0

@@ -149,3 +149,7 @@ jspm_packages
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
+
+# Extra
+output/

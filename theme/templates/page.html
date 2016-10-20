@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  {{ page.html_title or page.title }}
+{% endblock %}
+
+{% block content %}
+  {{ page.content }}
+{% endblock %}

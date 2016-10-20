@@ -9,27 +9,12 @@ fi
 
 mkdir -p theme/static/build/js/lib
 
-if [ "$NODE_ENV" = "production" ]
-then
-  echo ">> Compressing Libraries..."
-  uglifyjs node_modules/bootstrap/dist/js/bootstrap.min.js --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/lib/bootstrap.js
-  uglifyjs theme/static/build/js/lib/* --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/libs.js
-else
-  echo ">> Building Libraries..."
-  cp node_modules/bootstrap/dist/js/bootstrap.min.js theme/static/build/js/lib/bootstrap.js
-  uglifyjs theme/static/build/js/lib/* --screw-ie8 --stats --keep-fnames -o theme/static/build/js/libs.js
-fi
+echo ">> Building Libraries..."
+cp node_modules/bootstrap/dist/js/bootstrap.min.js theme/static/build/js/lib/bootstrap.js
 
+uglifyjs theme/static/build/js/lib/* --stats --keep-fnames -o theme/static/build/js/libs.js
 rm -rf theme/static/build/js/lib
-
-if [ "$NODE_ENV" = "production" ]
-then
-  echo ">> Compressing jQuery..."
-  uglifyjs node_modules/jquery/dist/jquery.js --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/jquery.js
-else
-  echo ">> Building jQuery..."
-  cp node_modules/jquery/dist/jquery.js theme/static/build/js/jquery.js
-fi
+cp node_modules/jquery/dist/jquery.js theme/static/build/js/jquery.js
 
 
 echo ">> Building Application JS..."
@@ -39,6 +24,8 @@ if [ "$NODE_ENV" = "production" ]
 then
   echo ">> Compressing Application..."
   uglifyjs theme/static/build/js/app.js --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/app.js
+  uglifyjs theme/static/build/js/libs.js --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/libs.js
+  uglifyjs theme/static/build/js/jquery.js --compress --screw-ie8 --define --stats --keep-fnames -o theme/static/build/js/jquery.js
 fi
 
 echo "> JS Built!"

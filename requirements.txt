@@ -1,6 +1,7 @@
 flake8==3.0.4
 fontawesome_markdown==0.2.5
 git+https://github.com/ryneeverett/python-markdown-comments.git
+iso8601==0.1.11
 markdown==2.6.7
 pelican==3.6.3
 pelican-minify==0.9

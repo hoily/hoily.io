@@ -4,7 +4,7 @@ NODE_BIN=$(BASEDIR)/node_modules/.bin
 PELICAN=$(ENV)/pelican
 
 OUTPUTDIR=$(BASEDIR)/output
-PLUGINS_DIR=$(BASEDIR)/pelican-plugins
+PLUGINS_DIR=$(BASEDIR)/pelican_plugins
 CONFIG_FILE=$(BASEDIR)/pelicanconf.py
 
 

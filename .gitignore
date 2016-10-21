@@ -153,4 +153,4 @@ pip-selfcheck.json
 
 # Extra
 output/
-pelican-plugins/
+pelican_plugins/

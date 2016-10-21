@@ -10,10 +10,6 @@ fi
 mkdir -p theme/static/build/js/lib
 
 echo ">> Building Libraries..."
-cp node_modules/bootstrap/dist/js/bootstrap.min.js theme/static/build/js/lib/bootstrap.js
-
-uglifyjs theme/static/build/js/lib/* --stats --keep-fnames -o theme/static/build/js/libs.js
-rm -rf theme/static/build/js/lib
 cp node_modules/jquery/dist/jquery.js theme/static/build/js/jquery.js
 
 

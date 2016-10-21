@@ -1,4 +1,5 @@
-require('featherlight/release/featherlight.min.js');
+import 'featherlight';
+import 'bootstrap';
 
 var alphaDust = function () {
 

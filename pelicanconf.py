@@ -79,3 +79,9 @@ NAV_LINKS = [
     ('Home', '/'),
     ('About', '/about/')
 ]
+
+FOOTER_ICON_LINKS = [
+    ('https://github.com/hoily/', 'github'),
+    ('/feed.atom', 'rss'),
+    ('mailto:contact@hoily.io', 'envelope-o')
+]

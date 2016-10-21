@@ -4,29 +4,13 @@
 <div class="menu-bg">
   <div class="menu-container">
     <ul>
-      <li class="menu-item">
-        <a href="/assets/projects/hexo-theme-alpha-dust/">
-          Home
-        </a>
-      </li>
-
-      <li class="menu-item">
-        <a href="/assets/projects/hexo-theme-alpha-dust/archives">
-          Archives
-        </a>
-      </li>
-
-      <li class="menu-item">
-        <a href="/assets/projects/hexo-theme-alpha-dust/about.html">
-          About
-        </a>
-      </li>
-
-      <li class="menu-item">
-        <a href="/assets/projects/hexo-theme-alpha-dust/contact.html">
-          Contact
-        </a>
-      </li>
+      {% for name, link in NAV_LINKS %}
+        <li class="menu-item">
+          <a href="{{ link }}">
+            {{ name }}
+          </a>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </div>

@@ -73,3 +73,9 @@ JINJA_FILTERS = {
     "category_find": filters.category_find,
     "limit": filters.limit
 }
+
+
+NAV_LINKS = [
+    ('Home', '/'),
+    ('About', '/about/')
+]

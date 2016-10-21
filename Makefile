@@ -4,6 +4,7 @@ NODE_BIN=$(BASEDIR)/node_modules/.bin
 PELICAN=$(ENV)/pelican
 
 OUTPUTDIR=$(BASEDIR)/output
+PLUGINS_DIR=$(BASEDIR)/pelican-plugins
 CONFIG_FILE=$(BASEDIR)/pelicanconf.py
 
 
@@ -25,11 +26,21 @@ clean:
 	rm -rf $(BASEDIR)/node_modules/
 
 
-install: env node_modules
+install: env node_modules pelican_plugins
 
 env:
 	pyvenv env
 	$(ENV)/pip install -r requirements.txt --upgrade
 
+pelican_plugins: env
+	rm -rf $(PLUGINS_DIR) || "No existing extensions"
+	git clone --recursive https://github.com/getpelican/pelican-plugins $(PLUGINS_DIR) || "Git Fail"
+	@echo ">> Hotfixing..."
+	rm -rf $(PLUGINS_DIR)/pelican-jinja2content
+	git clone https://github.com/RealOrangeOne/pelican-jinja2content -b patch-1 --depth=1 $(PLUGINS_DIR)/pelican-jinja2content
+
 node_modules:
 	npm install
+
+
+.PHONY: build clean install

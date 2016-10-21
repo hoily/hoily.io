@@ -1,6 +1,7 @@
+@import "variables";
+
 /* @group Fonts */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700,300,300italic,400italic,700italic");
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,300italic,400italic,700italic");
 /* @end Fonts */
 
 
@@ -13,3 +14,7 @@ $fa-font-path: "../fonts";
 
 @import "pygment";
 @import "alpha-dust/index";
+
+body {
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}

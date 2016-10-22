@@ -14,6 +14,9 @@
        </h1>
        <div class="post-info">
          <span class="date">{{ article.date|datetime }}</span>
+         <span class="category">
+           <a href="/{{ article.category.url }}">{{ article.category }}</a>
+         </span>
        </div>
      </div>
      <div class="content">

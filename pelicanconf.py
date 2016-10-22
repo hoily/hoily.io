@@ -48,6 +48,7 @@ PLUGIN_PATHS = ["./pelican_plugins", "./plugins"]
 PLUGINS = [
     'sitemap',
     'pelican-jinja2content',
+    'absolute_urls'
 ]
 
 SITEMAP = {

@@ -31,18 +31,11 @@
       <div class="col-xs-6 col-md-3 footer-categories">
         <h2>Categories</h2>
         <ul>
-          <li>
-            <a class="footer-post" href="/assets/projects/hexo-theme-alpha-dust/categories/Category-1/">Category 1</a>
-          </li>
-          <li>
-            <a class="footer-post" href="/assets/projects/hexo-theme-alpha-dust/categories/Category-1/Category-2/">Category 2</a>
-          </li>
-          <li>
-            <a class="footer-post" href="/assets/projects/hexo-theme-alpha-dust/categories/Foo/test/">test</a>
-          </li>
-          <li>
-            <a class="footer-post" href="/assets/projects/hexo-theme-alpha-dust/categories/Foo/Bar/">Bar</a>
-          </li>
+          {% for category, articles in categories|sort|limit(5) %}
+            <li>
+              <a class="footer-post" href="{{ category.absolute_url }}">{{ category.name|title }}</a>
+            </li>
+          {% endfor %}
         </ul>
       </div>
     </div>

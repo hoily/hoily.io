@@ -9,13 +9,13 @@
     <div class="post-header">
       <h1 class="title">
         <a href="{{ article.absolute_url }}">
-          {{ article.title }}
+          {{ article.title|title }}
         </a>
        </h1>
        <div class="post-info">
          <span class="date">{{ article.date|datetime }}</span>
          <span class="category">
-           <a href="{{ article.category.absolute_url }}">{{ article.category }}</a>
+           <a href="{{ article.category.absolute_url }}">{{ article.category|title }}</a>
          </span>
        </div>
      </div>
